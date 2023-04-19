@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
+require_relative 'nameable'
 # create a class Person
-class Person
+class Person < Nameable
   attr_reader :id
   attr_accessor :name, :age
 
@@ -10,6 +11,11 @@ class Person
     @name = name
     @age = age
     @parent_permission = parent_permission
+    super()
+  end
+
+  def correct_name
+    name
   end
 
   def can_use_services?
