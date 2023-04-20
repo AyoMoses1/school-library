@@ -11,6 +11,7 @@ class Person < Nameable
     @name = name
     @age = age
     @parent_permission = parent_permission
+    @rentals = []
     super()
   end
 
@@ -20,6 +21,11 @@ class Person < Nameable
 
   def can_use_services?
     @age || @parent_permission
+  end
+
+  def add_rentals(rental)
+    @rentals.push(rental)
+    rental.book = self
   end
 
   private
