@@ -1,7 +1,8 @@
-# create a class Classroom
+# frozen_string_literal: true
 
+# create a class Classroom
 class Classroom
-  attr_accessor :label :students
+  attr_accessor :label, :students
 
   def initialize(label)
     @label = label

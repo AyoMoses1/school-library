@@ -1,7 +1,9 @@
-# create class Book
+# frozen_string_literal: true
 
+# create class Book
 class Book
   attr_accessor :name, :author
+
   def initialize(name, author)
     @name = name
     @author = author

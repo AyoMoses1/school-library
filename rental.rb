@@ -1,10 +1,11 @@
-#  create class Rental
+# frozen_string_literal: true
 
+#  create class Rental
 class Rental
   attr_accessor :date
-  attr_reader :book :person
-  
-  def initialize(data)
+  attr_reader :book, :person
+
+  def initialize(_data)
     @date = date
   end
 
@@ -17,5 +18,4 @@ class Rental
     @person = person
     person.rentals.push(self) unless person.rentals.include?(self)
   end
-
 end
