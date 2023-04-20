@@ -2,7 +2,7 @@
 
 # create class Book
 class Book
-  attr_accessor :name, :author
+  attr_accessor :name, :author, :rentals
 
   def initialize(name, author)
     @name = name
