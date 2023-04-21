@@ -9,6 +9,6 @@ class Rental
     @date = date
     @person = person
     book.rentals << self
-    person.rentals << self
+    person.rentals << sel
   end
 end
