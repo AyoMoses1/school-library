@@ -1,14 +1,14 @@
-# frozen_string_literal: true
+require_relative 'book'
+require_relative 'person'
 
-#  create class Rental
 class Rental
   attr_accessor :date, :book, :person
 
-  def initialize(book, date, person)
-    @book = book
+  def initialize(date, book, person)
     @date = date
     @person = person
+    @book = book
     book.rentals << self
-    person.rentals << self
+    @person.rentals << self
   end
 end

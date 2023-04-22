@@ -1,17 +1,14 @@
-# frozen_string_literal: true
-
-# create class Book
 class Book
-  attr_accessor :name, :author, :rentals
+  attr_accessor :title, :author, :rentals
 
-  def initialize(name, author)
-    @name = name
+  def initialize(title, author)
+    @title = title
     @author = author
     @rentals = []
   end
 
-  def add_rentals(rental)
-    @rentals.push(rental)
-    rental.book = self
+  def add_rental(person, date = Date.today, book = self)
+    Rental.new(date, book, person)
+    @rentals << self unless @rentals.include?(self)
   end
 end
