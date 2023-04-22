@@ -1,13 +1,10 @@
-# frozen_string_literal: true
-
 require_relative 'nameable'
-# create a class Person
 class Person < Nameable
-  attr_reader :id, :rentals
-  attr_accessor :name, :age
+  attr_reader :id
+  attr_accessor :name, :age, :rentals
 
-  def initialize(age, parent_permission: true, name: 'Unknown')
-    @id = rand(1..1000)
+  def initialize(age, name = 'unknown', parent_permission: true)
+    @id = Random.rand(1..1000)
     @name = name
     @age = age
     @parent_permission = parent_permission
@@ -15,16 +12,17 @@ class Person < Nameable
     super()
   end
 
+  def add_rental(person, date = Date.today, book = self)
+    Rental.new(date, book, person)
+    @rentals << self unless @rentals.include?(self)
+  end
+
   def correct_name
     name
   end
 
   def can_use_services?
-    @age || @parent_permission
-  end
-
-  def add_rentals(book, date = Date.today)
-    Rental.new(date, book, self)
+    of_age? || @parent_permission
   end
 
   private
